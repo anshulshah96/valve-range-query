@@ -1,6 +1,13 @@
 Python library for Query of Valve Servers over a range of IPs
 =============================================================
 
+To install the library run
+
+::
+
+	pip install valve-range-query
+
+
 To scan servers in range " <base_ipaddr> . <axlimits> . <aylimits> "
 
 For example scan '172'.'25'.'0-34'.'0.254'
