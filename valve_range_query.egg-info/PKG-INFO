@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: valve-range-query
+Version: 1.0.4
+Summary: Python library for Query of Valve Servers over a range of IPs
+Home-page: https://github.com/anshulshah96/valve-range-query
+Author: Anshul Shah
+Author-email: anshulshah96@gmail.com
+License: MIT
+Description: Python library for Query of Valve Servers over a range of IPs
+        =============================================================
+        
+        To scan servers in range " <base_ipaddr> . <axlimits> . <aylimits> "
+        
+        For example scan '172'.'25'.'0-34'.'0.254'
+        
+        ::
+        	
+            from valverangequery import *
+            axlimits = [0,35]
+            aylimits = [0,255]
+            base_ipaddr = "172.25"
+            scanner = SourceScanner(timeout = 20.0, axlimits = axlimits, aylimits = aylimits, base_ipaddr="172.25")
+            server_list = scanner.scan_servers()
+        
+        
+        To obtain player info from server having IP <ip>
+        
+        ::
+        	
+            from valverangequery import *
+            ip = "172.25.12.121"
+            player_query = PlayerQuery(ip)
+            player_list  = player_query.player()
+        
+        
+        ----
+        
+        The respose of **SourceScanner** is a dictionary of list of servers
+        
+        Each list entry "server_obj" will have following key-value pairs:
+        	
+        ::
+        
+        	for server_obj in server_list:
+        		sample_new_dictionary = {
+        				'map_name' : server_obj['map'],
+        				'host' : server_obj['host_ip'],				'num_players' : server_obj['numplayers'],
+        				'max_players' : server_obj['maxplayers'], 	'server_name' : server_obj['name'],
+        				'game_name' : server_obj['game'],			'folder' : server_obj['folder'],
+        				'protocol' : server_obj['protocol'],		'num_bots' : server_obj['bots'],
+        				'num_humans' : server_obj['numplayers'] - server_obj['bots']
+        		}
+        
+        ----
+        
+        The respose of **PlayerQuery** is a dictionary of list of players
+        
+        Each list entry "player_obj" will have following key-value pairs:
+        	
+        ::
+        	
+        	for player_obj in player_list:
+        		sample_new_dictionary = {
+        				'score' : player_obj['score'], 'duration' : int(player_obj['duration'])	, 
+        				'name'	: player_obj['name']
+        		}
+Keywords: valve query servers counter strike
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7

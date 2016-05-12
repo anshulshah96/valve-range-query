@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+valve_range_query.egg-info/PKG-INFO
+valve_range_query.egg-info/SOURCES.txt
+valve_range_query.egg-info/dependency_links.txt
+valve_range_query.egg-info/top_level.txt
+valverangequery/__init__.py
+valverangequery/map_lib.py
+valverangequery/player_lib.py
+valverangequery/source_packet.py
